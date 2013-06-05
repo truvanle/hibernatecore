@@ -7,9 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.sql.ordering.antlr.Factory;
 
 import bussiness.entity.Custommers;
+import bussiness.entity.Employees;
 
 public class test {
 
@@ -21,14 +21,15 @@ public class test {
 		SessionFactory factory = config.buildSessionFactory();
 		Session session = factory.openSession();
 		
-		String hql = "FROM Custommers";
+		String hql = "FROM Employees";
 		Query query = session.createQuery(hql);
 		
-		List<Custommers> entities = query.list();
+		List<Employees> entities = query.list();
 		
-		for(Custommers o : entities){
+		for(Employees o : entities){
 			System.out.println(" >> ID: " + o.getId());
-			System.out.println(" >> FullName: " + o.getFullName());
+			System.out.println(" >> FullName: " + o.getFirstName());
+			System.out.println(" >> Gender: " + o.isGender());
 			System.out.println();
 		}
 		

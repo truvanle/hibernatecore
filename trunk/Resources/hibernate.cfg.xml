@@ -14,6 +14,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
      
         <mapping class="bussiness.entity.Custommers"/>
+        <mapping class="bussiness.entity.Employees"/>
     </session-factory>
 </hibernate-configuration>
 
