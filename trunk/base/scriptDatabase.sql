@@ -54,11 +54,11 @@ DROP TABLE IF EXISTS `employees`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employees` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lastName` varchar(45) DEFAULT NULL,
-  `firstName` varchar(45) DEFAULT NULL COMMENT '		',
+  `lastName` varchar(50) DEFAULT NULL,
+  `firstName` varchar(50) DEFAULT NULL COMMENT '		',
   `gender` bit(1) DEFAULT NULL,
-  `birthday` varchar(45) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `telephone` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -169,4 +169,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-06-04 15:27:58
+-- Dump completed on 2013-06-05 16:07:49
