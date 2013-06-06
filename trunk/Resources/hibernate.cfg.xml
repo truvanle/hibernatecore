@@ -18,6 +18,7 @@
 		<mapping class="bussiness.entity.Product" />
 		<mapping class="bussiness.entity.Invoices" />
 		<mapping class="bussiness.entity.DetailInvoices" />
+		<mapping class="bussiness.entity.InvoiceDetails" />
 	</session-factory>
 </hibernate-configuration>
 
