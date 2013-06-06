@@ -1,11 +1,14 @@
 package bussiness.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -14,7 +17,7 @@ import javax.persistence.TemporalType;
 @Entity
 @TableGenerator(
 		name="GEND_employees",
-		catalog="employees",
+		catalog="GEN_employees",
 		initialValue=1,
 		pkColumnName="primaryKey",
 		pkColumnValue="primaryValue",
@@ -26,6 +29,7 @@ public class Employees implements Serializable {
 	private static final long serialVersionUID = 7648517829942744032L;
 
 	@Id
+	@GeneratedValue
 	@Column(name="id",unique=true)
 	private int id;
 	
@@ -47,6 +51,9 @@ public class Employees implements Serializable {
 	
 	@Column(name="telephone", length=10, nullable=true,unique=true)
 	private String telephone;
+	
+	@OneToMany(mappedBy="employees")
+	Collection<Invoices> invoices;
 
 	public int getId() {
 		return id;
@@ -103,6 +110,22 @@ public class Employees implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
-	
+
+	public Collection<Invoices> getInvoices() {
+		return invoices;
+	}
+
+	public void setInvoices(Collection<Invoices> invoices) {
+		this.invoices = invoices;
+	}
+
+	@Override
+	public String toString() {
+		return "Employees [id=" + id + ", lastName=" + lastName
+				+ ", firstName=" + firstName + ", gender=" + gender
+				+ ", birthday=" + birthday + ", address=" + address
+				+ ", telephone=" + telephone + ", invoices=" + invoices + "]";
+	}
+
+	 
 }

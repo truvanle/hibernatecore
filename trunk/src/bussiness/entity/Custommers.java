@@ -1,11 +1,14 @@
 package bussiness.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,23 +17,26 @@ public class Custommers implements Serializable {
 	private static final long serialVersionUID = 771064140313299887L;
 
 	@Id
-	@GeneratedValue
-	int id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	
 	@Column(name="fullName")
-	String fullName; 
+	private String fullName; 
 	
 	@Column(name="address")
-	String address; 
+	private String address; 
 	
 	@Column(name="telephone")
-	String telephone; 
+	private String telephone; 
 	
 	@Column(name="email")
-	String email; 
+	private String email; 
 	
 	@Column(name="active")
-	boolean active;
+	private boolean active;
+	
+	@OneToMany(mappedBy="custommers")
+	Collection<Invoices> invoices;
 
 	public int getId() {
 		return id;
@@ -79,6 +85,23 @@ public class Custommers implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
+	public Collection<Invoices> getInvoices() {
+		return invoices;
+	}
+
+	public void setInvoices(Collection<Invoices> invoices) {
+		this.invoices = invoices;
+	}
+
+	@Override
+	public String toString() {
+		return "Custommers [id=" + id + ", fullName=" + fullName + ", address="
+				+ address + ", telephone=" + telephone + ", email=" + email
+				+ ", active=" + active + ", invoices=" + invoices + "]";
+	}
+
+	 
 	
 	
 }

@@ -3,19 +3,22 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/business</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">123456</property>
-        <property name="connection.pool_size">100</property>
-        <property name="show_sql">false</property>
-        <property name="hbm2ddl.auto">none</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-     
-        <mapping class="bussiness.entity.Custommers"/>
-        <mapping class="bussiness.entity.Employees"/>
-    </session-factory>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/business</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123456</property>
+		<property name="connection.pool_size">100</property>
+		<property name="show_sql">false</property>
+		<property name="hbm2ddl.auto">none</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<mapping class="bussiness.entity.Custommers" />
+		<mapping class="bussiness.entity.Employees" />
+		<mapping class="bussiness.entity.Product" />
+		<mapping class="bussiness.entity.Invoices" />
+		<mapping class="bussiness.entity.DetailInvoices" />
+	</session-factory>
 </hibernate-configuration>
 
 

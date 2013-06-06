@@ -9,7 +9,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import bussiness.entity.Custommers;
-import bussiness.entity.Employees;
+import bussiness.entity.DetailInvoices;
+import bussiness.entity.Invoices;
 
 public class test {
 
@@ -21,15 +22,15 @@ public class test {
 		SessionFactory factory = config.buildSessionFactory();
 		Session session = factory.openSession();
 		
-		String hql = "FROM Employees";
+		String hql = "FROM Invoices";
 		Query query = session.createQuery(hql);
 		
-		List<Employees> entities = query.list();
+		List<Invoices> entities = query.list();
 		
-		for(Employees o : entities){
+		for(Invoices o : entities){
 			System.out.println(" >> ID: " + o.getId());
-			System.out.println(" >> FullName: " + o.getFirstName());
-			System.out.println(" >> Gender: " + o.isGender());
+			System.out.println(" >> Customer ID: " + o.getCustommers().getFullName());
+		 
 			System.out.println();
 		}
 		
